@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property-read Category $category
  * @property-read Collection<int, Review> $reviews
  * @property-read Collection<int, Price> $prices
- * @property-read Collection<int, OrderRow> $orderRows
+ * @property-read Collection<int, Orderrow> $orderRows
  */
 class Product extends Model
 {
@@ -33,18 +33,31 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
  
-    // public function reviews(): HasMany
-    // {
-    //     return $this->hasMany(Review::class);
-    // }
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
  
-    // public function prices(): HasMany
-    // {
-    //     return $this->hasMany(Price::class);
-    // }
+    public function prices(): HasMany
+    {
+        return $this->hasMany(Price::class);
+    }
  
-    // public function orderRows(): HasMany
-    // {
-    //     return $this->hasMany(OrderRow::class);
-    // }
+    public function orderRows(): HasMany
+    {
+        return $this->hasMany(Orderrow::class);
+    }
+
+    /**
+     * Controleer of het product verwijderd mag worden.
+     * Kan niet verwijderd worden als er nog bestellingen aan gekoppeld zijn.
+     */
+    public function canDelete(): bool
+    {
+        if (isset($this->order_rows_count)) {
+            return $this->order_rows_count === 0;
+        }
+
+        return !$this->orderRows()->exists();
+    }
 }

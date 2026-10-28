@@ -1,24 +1,23 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
-    <title>Spel App</title>
-</head>
-<body>
- 
-    <h1>Spel App</h1>
- 
-    <nav>
-        <ul>
-            <li>
-                <a href="{{ route('categories.index') }}">
-                    Categories
-                </a>
-            </li>
-        </ul>
-    </nav>
- 
-</body>
-</html>
+@extends('layouts.app')
+
+@section('title', 'Home')
+
+@section('content')
+<section class="hero">
+    <div class="hero-content">
+        <p class="eyebrow">Laravel applicatie</p>
+        <h1>Welkom bij Spel App</h1>
+        <p class="hero-text">
+            Beheer hier eenvoudig alle categorieën, producten en bestellingen van de applicatie.
+        </p>
+        <div class="hero-actions">
+            <a href="{{ route('categories.index') }}" class="btn">
+                Bekijk categorieën
+            </a>
+            <a href="{{ route('products.index') }}" class="btn btn-secondary">
+                Bekijk producten
+            </a>
+        </div>
+    </div>
+</section>
+@endsection

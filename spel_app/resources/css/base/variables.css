@@ -1,0 +1,22 @@
+:root {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    
+    --bg-page: #f8fafc;
+    --surface: #ffffff;
+    
+    --border: #e2e8f0;
+    --border-input: #cbd5e1;
+    
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    
+    --success: #059669;
+    --success-bg: #ecfdf5;
+    --success-border: #a7f3d0;
+    
+    --danger: #dc2626;
+    --danger-bg: #fef2f2;
+    --danger-border: #fecaca;
+}

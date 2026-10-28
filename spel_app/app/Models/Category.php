@@ -24,4 +24,17 @@ class Category extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    /**
+     * Controleer of de categorie verwijderd mag worden.
+     * Kan niet verwijderd worden als er nog producten aan gekoppeld zijn.
+     */
+    public function canDelete(): bool
+    {
+        if (isset($this->products_count)) {
+            return $this->products_count === 0;
+        }
+
+        return !$this->products()->exists();
+    }
 }

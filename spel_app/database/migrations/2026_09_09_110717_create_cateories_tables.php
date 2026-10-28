@@ -9,7 +9,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-  public function up(): void
+    public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cateories_tables');
+        Schema::dropIfExists('categories');
     }
 };
